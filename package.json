@@ -1,0 +1,38 @@
+{
+  "name": "presales-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n web,api -c cyan,magenta \"vite --host 127.0.0.1\" \"node --watch server/index.js\"",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "smoke:browser": "node tests/browser-smoke.mjs",
+    "check": "npm run test && npm run build"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "csv-parse": "^7.0.3",
+    "dotenv": "^17.4.2",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "lucide-react": "^0.554.0",
+    "multer": "^2.0.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.6",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.1",
+    "concurrently": "^9.2.1",
+    "playwright-core": "^1.65.1",
+    "supertest": "^7.1.4",
+    "vite": "^7.2.2"
+  }
+}
